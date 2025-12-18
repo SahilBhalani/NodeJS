@@ -2,3 +2,5 @@
 /package-lock.json
 /package.json
 /myfile.txt
+/NodeJS/eslint.config.js
+/NodeJS/prettier.config.js
