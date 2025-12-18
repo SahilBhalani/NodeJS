@@ -1,19 +1,18 @@
 //data-loader.mjs
-//This would cause an error in CommonJS or in a Script 
+//This would cause an error in CommonJS or in a Script
 //But works at the top level in ES Modules
 
-console.log('Loading Data...');
-
+console.log('Loading Data...')
 
 //Top-Level Await - the module's execution pauses here
-const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-const data = await response.json();
+const response = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+const data = await response.json()
 
-console.log('Data Loaded');
+console.log('Data Loaded')
 
-export {data};
+export { data }
 
-//When another module imports this one, it will only get the exports 
+//When another module imports this one, it will only get the exports
 //after all the top level await operations have completed
 
 /**
@@ -32,30 +31,36 @@ export {data};
 //Always include file extensions in your import statement for local files:
 
 //good
-import { someFunction } from './utilss.mjs';
+import { someFunction } from './utilss.mjs'
 
 //bad - might be not work depending on configurations
-import { someFunction } from './utils';
+import { someFunction2 } from './utils'
 
 // ? 2. Use Directory Indexes Properly
 // for directory imports, create index.mjs files:
 
 //utils/index.mjs
-export * from './string-utils.mjs';
-export * from './number-utils.mjs';
+export * from './string-utils.mjs'
+export * from './number-utils.mjs'
 
 //app.mjs
-import { formatStrings, add } from './utils/index.mjs';
+import { formatStrings, add } from './utils/index.mjs'
 
 //? 3. Choose the right Export Style
 //use named exports for multiple functions/values, and default exports for main functionality:
 
 //for libraries with many utilities, use named exports
-export function validate() { /*...*/}
-export function format() { /*...*/}
+export function validate() {
+    /*...*/
+}
+export function format() {
+    /*...*/
+}
 
 //for components or classes that are the primary export
-export default class UserService{/*...*/}
+export default class UserService {
+    /*...*/
+}
 
 // ? 4. Handle the Transition From CommonJS
 //When working with a codebase that mixes CommonJS and ES Modules:
@@ -67,7 +72,6 @@ export default class UserService{/*...*/}
 
 //Importing CommonJS module from ESM
 //In a CommonJS module:
-(async () => {
-    const {default: myEsmModule} = await import('./my-esm-module.mjs');
-})();
-
+;(async () => {
+    const { default: myEsmModule } = await import('./my-esm-module.mjs')
+})()

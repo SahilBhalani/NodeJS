@@ -3,7 +3,7 @@
 // To use any built-in module, use the require() function:
 
 //* ex. HTTP Module
-const http = require('http');
+const http = require('http')
 // http
 //   .createServer((req, res) => {
 //     res.writeHead(200, { "content-type": "text/html" });
@@ -16,34 +16,34 @@ const http = require('http');
 
 // ? 3. Using Your Modules
 //import and use your custom modules using require() with a relative or absolute path:
-const path = require('path');
+const path = require('path')
 
 //Importing custom modules
-const { getCurrentDate, formatCurrency } = require("./utils");
-const Logger = require("./logger");
+const { getCurrentDate, formatCurrency } = require('./utils')
+const Logger = require('./logger')
 
 //Create a logger instance
-const logger = new Logger('App');
+const logger = new Logger('App')
 
 ///Create Server
 const server = http.createServer((req, res) => {
-  try {
-    logger.log(`Request received for ${req.url}`);
+    try {
+        logger.log(`Request received for ${req.url}`)
 
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write(`<h1>Welcome to our app!</h1>`);
-    res.write(`<p>Current date: ${getCurrentDate()}</p>`);
-    res.write(`<p>Formatted amount: ${formatCurrency(99.99)}</p>`);
-    res.end();
-  } catch (error) {
-    logger.error(error);
-    res.writeHead(500, {'Content-Type' : 'text/plain'});
-    res.end('Internal Server Error');
-  }
-});
+        res.writeHead(200, { 'Content-Type': 'text/html' })
+        res.write(`<h1>Welcome to our app!</h1>`)
+        res.write(`<p>Current date: ${getCurrentDate()}</p>`)
+        res.write(`<p>Formatted amount: ${formatCurrency(99.99)}</p>`)
+        res.end()
+    } catch (error) {
+        logger.error(error)
+        res.writeHead(500, { 'Content-Type': 'text/plain' })
+        res.end('Internal Server Error')
+    }
+})
 
 //Start server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000
 server.listen(PORT, () => {
     logger.log(`Server running at http://localhost:${PORT}`)
-});
+})

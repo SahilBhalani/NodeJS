@@ -28,12 +28,12 @@ export function sayGoodbye() {
 }
 
 //Alternative: Export list at the end
-function add(a,b) {
+function add1(a,b) {
     return a + b;
 }
 
-function subtract(a,b) {
-    return a-b
+function subtract1(a,b) {
+    return a-b;
 }
 
 export {add, subtract};
@@ -59,25 +59,25 @@ function main() {
     console.log('Main Function');
 }
 
-export {main as default}; //alternative way to set default
+//export {main as default}; //alternative way to set default
 
 //* Import Syntax
 
 //* Importing Named Exports
 //Importing specific named exports
-import {sayHello, sayGoodbye} from './greetings.mjs';
+//import {sayHello, sayGoodbye} from './greetings.mjs';
 
 //Rename imports to avoid naming conflicts
 import {add as sum, subtract as minus} from './math.mjs';
 console.log(sum(5,3));
 
 //Import all named exports as an object
-import * as math from './math.mjs'
+import * as math from './math.mjs';
 console.log(math.add(7,4)); //11
 
 //* Importing Default Exports
 //Import the default export
-import mainFunction from './main.mjs'
+import mainFunction from './main.mjs';
 mainFunction();
 
 //You can name the default import anything you want
@@ -86,7 +86,7 @@ anyNameYouWant();
 
 //* Importing Both Default and Named Exports
 //Import both default and named exports
-import main, {VERSION} from './main.mjs';
+//import main, {VERSION} from './main.mjs';
 console.log(VERSION); //1.0.0
 main(); // Main function
 
@@ -99,7 +99,7 @@ main(); // Main function
 //app.js
 async function loadModules(moduleName) {
     try {
-        const module = await import(`./${moduleName}.mjs`)
+        const module = await import(`./${moduleName}.mjs`);
         return module;
     } catch (error) {
         console.error(`Failed To load ${moduleName}.mjs`);
@@ -117,7 +117,7 @@ loadModules(moduleName).then(module => {
 (async () => {
     const mathModule = await import('./math.mjs');
     console.log(mathModule.add(10,5)); //15
-})
+});
 
 // ? Use Case : Dynamic imports are great for code-splitting, lazy-loading modules, or conditionally loading modules based on runtime conditions
 
