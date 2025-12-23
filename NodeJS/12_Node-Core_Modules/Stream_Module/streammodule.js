@@ -117,4 +117,43 @@ writableStream.on('error', (err) => {
 
 }
 
+// * Pipe
+//The pipe() method connects a readable stream to a writable stream, automatically managing the flow of data andhandling backpressure
 
+// Create readable and writable streams
+{
+    const readableStream = fs.createReadStream('C:\\Node\\data.json');
+    const writableStream = fs.createWriteStream('C:\\Node\\new-file.txt')
+
+    // Pipe the readable stream to the writable stream
+    readableStream.pipe(writableStream);
+
+    // Handle completion and errors
+    readableStream.on('error' , (err) => {
+        console.error('Read Error:', err);
+    });
+
+    writableStream.on('errror', (err) => {
+        console.error('Write error:', err);
+    });
+
+    writableStream.on('finish', () => {
+        console.log('File copy completeddddddd');
+    });
+}
+
+
+
+// * Chaining Pipes
+//You can chain multiple streams together using the pipe()
+//This is especially useful when working with transform streams
+const zlib = require('zlib')
+{
+    // Create a pipeline to read a file, compare it, and write to a new file
+    fs.createReadStream('C:\\Node\\data.json')
+    .pipe(zlib.createGzip()) // compress the data
+    .pipe(fs.createWriteStream('C:\\Node\\new-name.txt.gz'))
+    .on('finish', () => {
+        console.log('File compress successfully');
+    })    
+}
