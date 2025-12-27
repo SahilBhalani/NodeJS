@@ -16,3 +16,5 @@
 /my-express-app/prettier.config.js
 /myapp/node_modules
 /RESTAPIs-With-Node-Express/node_modules
+/RESTAPIs-With-Node-Express/eslint.config.js
+/RESTAPIs-With-Node-Express/prettier.config.js
