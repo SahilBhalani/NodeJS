@@ -187,7 +187,41 @@ app.use((req,res) => {
 })
 
 
-app.listen(8080, () => {
+
+
+//* Best Practices for middleware order:
+ /**
+  * 1. Place middleware that applies to all requests first(logging, security. body parsing)
+  * 2. Place more specific middleware and routes next
+  * 3. Place Error-Handling middleware last
+  */
+
+ // TODO: Example - Recommended Order
+ //1. Application-wide middleware
+ app.use(express.json());
+ app.use(express.urlencoded({ extended: true }));
+ app.use(morgan('dev'));
+ app.use(helmet());
+
+ //2. Route-specific middleware
+ app.use('/api', authenticate);
+
+ //3. routes
+ app.use('/api/users',userRoutes);
+ app.use('/api/products',productRoutes);
+
+ //4. 404 handler
+ app.use((req,res) => {
+    res.status(404).json({ message: 'Not found' });
+ });
+
+ // 5. Error handler(always last)
+ app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(500).json({ message: 'Server error'});
+ })
+
+ app.listen(8080, () => {
     console.log(`Server running on port http://localhost:8080`);
 });
 
