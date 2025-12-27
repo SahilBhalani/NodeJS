@@ -11,3 +11,8 @@
 /NodeJS/04_Node-Core_Modules/HTTPS_Module/chain.pem
 /NodeJS/04_Node-Core_Modules/HTTPS_Module/csr.pem
 /NodeJS/04_Node-Core_Modules/HTTPS_Module/key.pem
+/my-express-app/node_modules
+/my-express-app/eslint.config.js
+/my-express-app/prettier.config.js
+/myapp/node_modules
+/RESTAPIs-With-Node-Express/node_modules
