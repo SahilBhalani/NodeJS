@@ -34,7 +34,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 /**
  * @swagger
  * /api/users:
- *   get:
+ *   put:
  *     summary: Returns a list of users
  *     description: Retrieve a list of all users
  *     responses:
@@ -67,26 +67,14 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 app.get('/ping', (req, res) => res.send('pong'));
 
 // Validation schema
-const userSchema = Joi.object({
-    // id: Joi.number().integer().required(),
-    name: Joi.string().min(3).required(),
-    email: Joi.string().email().required(),
-    age: Joi.number().integer().min(18).max(120)
-});
-
-// app.post('/api/users', (req,res) => {
-//     const { error } = userSchema.validate(req.body);
-//     if(error) {
-//         return res.status(400).json({ message: error.details[0].message})
-//     }
-
-//     res.status(201).json({
-//         id: 1, //mock id for tests
-//         ...req.body,
-//     });
+// const userSchema = Joi.object({
+//      id: Joi.number().integer().required(),
+//     name: Joi.string().min(3).required(),
+//     email: Joi.string().email().required(),
+//     age: Joi.number().integer().min(18).max(120)
 // });
 
-//Version 1 Routes
+
 const userRoutes = require('./routes/users');
 app.use('/api/users', userRoutes);
 
@@ -97,6 +85,5 @@ app.get('/api/error-demo', (req, res, next) => {
 
 // Error handling middleware (must be last)
 app.use(errorHandler);
-
 
 module.exports = app;
