@@ -20,3 +20,6 @@
 /RESTAPIs-With-Node-Express/prettier.config.js
 /.env
 /graphql-server/node_modules
+/chat_applicaton_socketio/node_modules
+/chat_applicaton_socketio/prettier.config.js
+/chat_applicaton_socketio/eslint.config.js
