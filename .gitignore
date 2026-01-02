@@ -24,3 +24,7 @@
 /chat_applicaton_socketio/prettier.config.js
 /chat_applicaton_socketio/eslint.config.js
 /websocket-demo/node_modules
+/node-mongoos-app/node_modules
+/node-mongoos-app/.env
+/login-using-node/node_modules
+/login-using-node/.env
