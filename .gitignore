@@ -28,3 +28,6 @@
 /node-mongoos-app/.env
 /login-using-node/node_modules
 /login-using-node/.env
+/qr-code-generator/server/node_modules
+/email-sending-system/node_modules
+/email-sending-system/.env
