@@ -31,3 +31,5 @@
 /qr-code-generator/server/node_modules
 /email-sending-system/node_modules
 /email-sending-system/.env
+/Social_Media_API/node_modules
+/Social_Media_API/.env
