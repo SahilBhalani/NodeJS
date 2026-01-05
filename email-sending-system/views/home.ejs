@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Send Email</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ea6666, #a24b4b);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      form {
+        background: #ffffff;
+        width: 100%;
+        max-width: 420px;
+        padding: 30px;
+        border-radius: 14px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px 12px;
+        margin-bottom: 18px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        outline: none;
+        transition: 0.2s ease;
+      }
+
+      textarea {
+        resize: none;
+      }
+
+      input:focus,
+      textarea:focus {
+        border-color: #667eea;
+        box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.25);
+      }
+
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #ea6666;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.25s ease;
+      }
+
+      button:hover {
+        background: #5567d9;
+        transform: translateY(-1px);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+      <form action="/send-email" method="post">
+        <h1>Send Email</h1>
+      <label for="recipient">Recipient:</label>
+      <input type="email" name="recipient" id="recipient" required />
+      <br />
+      <label for="subject">Subject:</label>
+      <input type="text" name="subject" id="subject" required />
+      <br />
+      <label for="message">Message:</label>
+      <textarea name="message" id="message" cols="50" rows="5" required></textarea><br />
+
+      <button type="submit">Send Email</button>
+    </form>
+  </body>
+</html>
