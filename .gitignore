@@ -37,3 +37,6 @@
 /BLOG_API/.env
 /Library_Managing_API/node_modules
 /Library_Managing_API/.env
+/movie-recommendation/node_modules
+/movie-recommendation/.env
+/Reading_Project/node_modules
